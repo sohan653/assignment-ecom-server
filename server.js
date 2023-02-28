@@ -1,6 +1,7 @@
 const express =require('express');
 const router =require('./src/routes/api');
 const app= new express();
+require('dotenv').config()
 
 
 // Security Middleware Lib Import
@@ -22,10 +23,24 @@ app.use(xss())
 
 
 app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb',extended:true}));
 
 
-// Body Parser Implement
+// multipart form data
+const fileUpload=require('express-fileupload');
+app.use(fileUpload({
+    useTempFiles : true,
+
+}));
+
+// cloudinay config
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 
 // Request Rate Limit

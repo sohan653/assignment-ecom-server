@@ -23,3 +23,10 @@ exports.updateProfile=async (req, res) => {
     let Result=await userUpdateService(req,User)
     res.status(200).json(Result)
 }
+exports.checkLogin=async (req,res)=>{
+    res.status(200).json({login:true})
+}
+
+exports.checkAdmin=async (req,res)=>{
+    res.status(200).json({isAdmin:true})
+}

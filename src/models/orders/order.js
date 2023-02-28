@@ -5,7 +5,7 @@ const dataSchema=mongoose.Schema({
         type:String,
         required:true
     },
-    email:{
+    UserEmail:{
         type:String,
         required:true
     },
@@ -22,4 +22,6 @@ const dataSchema=mongoose.Schema({
     }
 });
 
-const Order=mongoose.model("Order",dataSchema)
+const Order=mongoose.model("Order",dataSchema);
+
+module.exports=Order;

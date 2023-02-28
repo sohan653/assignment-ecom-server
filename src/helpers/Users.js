@@ -1,11 +1,9 @@
-const jwt=require('jsonwebtoken')
-//  create token 
- const createToken=(payload)=> {
-    const token = jwt.sign(payload, 'sohanur653', { expiresIn: '1m' });
-    return token;
-  };
+const jwt = require("jsonwebtoken");
+const createToken= async (data) => {
+    let Payload={exp: Math.floor(Date.now() / 1000) + (24*60*60), data:data}
 
-module.exports={
-    createToken,
 
+
+    return await jwt.sign(Payload, 'sohanur653');
 }
+module.exports=createToken

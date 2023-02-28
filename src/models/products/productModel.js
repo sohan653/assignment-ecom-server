@@ -31,6 +31,11 @@ const dataSchema = new mongoose.Schema(
         required:true,
         
     },
+      photoId:{
+          type:String,
+          required:true,
+
+      },
     
   },
   { timestamps: true, versionKey: false }

@@ -6,7 +6,7 @@ const dataSchema= mongoose.Schema({
         required:true,
         unique:true
     },
-    fisrtName:{
+    firstName:{
         type: String,
         trim: true,
         required: true,
@@ -16,7 +16,11 @@ const dataSchema= mongoose.Schema({
         trim: true,
         required: true,
     },
-   
+   role:{
+        type:String,
+       enum:["user","admin"],
+       default:"user"
+   },
     password: {
         type: String,
         required: true,
