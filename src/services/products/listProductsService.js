@@ -7,4 +7,4 @@ const listProductsService=async(req,model)=>{
     }
 }
 
-module.exports = listProductsService();
+module.exports = listProductsService;

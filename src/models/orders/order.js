@@ -18,7 +18,13 @@ const dataSchema=mongoose.Schema({
         required:true
     }],
     totalPrice:{
-        String,
+        type:String
+    },
+    isPay:{
+        type:String,
+        enum:["paid","unpaid","cashOnDelivery"],
+        default:"unpaid"
+
     }
 });
 

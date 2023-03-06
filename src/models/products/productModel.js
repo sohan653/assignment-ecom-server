@@ -31,7 +31,7 @@ const dataSchema = new mongoose.Schema(
         required:true,
         
     },
-      photoId:{
+      photoId :{
           type:String,
           required:true,
 

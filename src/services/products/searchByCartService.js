@@ -1,5 +1,7 @@
 
+const mongoose = require('mongoose');
 
+const { ObjectId } = mongoose.Types;
 const searchByCartService=async (req,model)=>{
     try {
         const ids = req.body.ids; // array of product IDs from req.body
@@ -8,7 +10,7 @@ const searchByCartService=async (req,model)=>{
             {
                 $match: {
                     _id: {
-                        $in: ids.map(id => ObjectId(id))
+                        $in:  ids.map(id => new ObjectId(id))
                     }
                 }
             }
