@@ -16,7 +16,7 @@ const photoUpdateService=async(req,model)=>{
                 if (result){
                     // filter & update
                     model.findOneAndUpdate(
-                        {photoId:req.params.photoId},
+                        {photoId:req.params.photoId,_id:req.params.id},
                         {photoUrl:result.url,photoId:result.public_id},
                         {new:true}
                         ,

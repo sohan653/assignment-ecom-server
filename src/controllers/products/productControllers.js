@@ -31,7 +31,10 @@ exports.searchByCart=async (req, res) => {
     let Result=await searchByCartService(req,Product)
     res.status(200).json(Result)
 }
-
+exports.photoUpdate=async (req,res)=>{
+    let Result=await photoUpdateService(req,Product)
+    res.status(200).json(Result)
+}
 exports.deleteProduct=async (req, res) => {
     let Result=await deleteProductService(req,Product)
     res.status(200).json(Result)
