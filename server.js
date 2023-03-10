@@ -44,8 +44,8 @@ cloudinary.config({
 
 
 // Request Rate Limit
-const limiter= rateLimit({windowMs:15*60*1000,max:3000})
-app.use(limiter)
+// const limiter= rateLimit({windowMs:15*60*1000,max:3000})
+// app.use(limiter)
 
 // Mongo DB Database Connection
 let URI=`mongodb+srv://sohanur653:xEOCeD8sKE6bbwHT@cluster0.gmtdmww.mongodb.net/?retryWrites=true&w=majority`;

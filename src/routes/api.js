@@ -3,6 +3,7 @@ const {registration, login, myProfile, updateProfile, checkAdmin, checkLogin} = 
 const {authVerify} = require("../middlewares/authVerify");
 const {isAdmin} = require("../middlewares/isAdmin");
 const {createProduct, listProducts, updateProduct, readProduct, searchByCart, deleteProduct, photoUpdate} = require("../controllers/products/productControllers");
+const {createOrder, getMyOrder} = require("../controllers/orders/orderControllers");
 const router=express.Router();
 
 // user api
@@ -23,6 +24,8 @@ router.get('/searchByCart',searchByCart)
 router.post('/photo-update/:id/:photoId',authVerify,isAdmin,photoUpdate)
 router.delete('/delete-product/:id', authVerify,isAdmin,deleteProduct)
 
-
+// orders
+router.post('/create-order',authVerify,createOrder);
+router.get('/my-orders',authVerify,getMyOrder)
 
 module.exports=router

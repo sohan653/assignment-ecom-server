@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const dataSchema=mongoose.Schema({
+const dataSchema= mongoose.Schema({
     customerName:{
         type:String,
         required:true
@@ -9,24 +9,40 @@ const dataSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    mobileNumber:{
+        type:String,
+        required:true,
+    },
     address:{
         type:String,
         required:true
     },
     productList:[{
-        type:String,
+        type:Object,
         required:true
     }],
     totalPrice:{
-        type:String
+        type:Number
     },
     isPay:{
         type:String,
-        enum:["paid","unpaid","cashOnDelivery"],
+        enum:["paid","unpaid"],
         default:"unpaid"
 
-    }
-});
+    },
+    show:{
+        type:String,
+        enum:[true,false],
+        default: true
+    },
+    orderStatus:[
+        {
+            type:String,
+            enum:['processing ,shipped,delivered'],
+            default:'processing'
+        }
+    ]
+},{timestamps:true,versionKey:false});
 
 const Order=mongoose.model("Order",dataSchema);
 
