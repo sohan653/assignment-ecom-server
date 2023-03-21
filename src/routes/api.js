@@ -3,7 +3,9 @@ const {registration, login, myProfile, updateProfile, checkAdmin, checkLogin} = 
 const {authVerify} = require("../middlewares/authVerify");
 const {isAdmin} = require("../middlewares/isAdmin");
 const {createProduct, listProducts, updateProduct, readProduct, searchByCart, deleteProduct, photoUpdate} = require("../controllers/products/productControllers");
-const {createOrder, getMyOrder} = require("../controllers/orders/orderControllers");
+const {createOrder, getMyOrder, getAllOrder, getOrderById, getPaymentToken, checkOut, getOrderByPay, deleteOrder,
+    changeOrderStatus, } = require("../controllers/orders/orderControllers");
+
 const router=express.Router();
 
 // user api
@@ -26,6 +28,15 @@ router.delete('/delete-product/:id', authVerify,isAdmin,deleteProduct)
 
 // orders
 router.post('/create-order',authVerify,createOrder);
-router.get('/my-orders',authVerify,getMyOrder)
+router.get('/my-orders',authVerify,getMyOrder);
+router.get('/all-orders',authVerify,isAdmin,getAllOrder)
+router.get('/all-orders/:id',authVerify,getOrderById);
+router.get('/order/:value',getOrderByPay)
+router.delete('/order/:id',authVerify,isAdmin,deleteOrder);
+router.put('/order/:id',authVerify,isAdmin,changeOrderStatus)
+
+// checkout
+router.get('/get-payment-token',getPaymentToken)
+router.post('/checkout/:id',checkOut)
 
 module.exports=router

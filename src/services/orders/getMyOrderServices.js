@@ -7,7 +7,7 @@ const getMyOrderService= async (Request,DataModel) => {
             const payload={
                 UserEmail:email
             }
-            console.log(payload)
+
         let data =await DataModel.aggregate([{$match:payload}])
         return {status: "success", data: data}
     }

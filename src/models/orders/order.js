@@ -35,13 +35,13 @@ const dataSchema= mongoose.Schema({
         enum:[true,false],
         default: true
     },
-    orderStatus:[
+    orderStatus:
         {
             type:String,
-            enum:['processing ,shipped,delivered'],
-            default:'processing'
+            enum:['accepted','processing' ,'shipped','delivered'],
+            default:'accepted',
         }
-    ]
+
 },{timestamps:true,versionKey:false});
 
 const Order=mongoose.model("Order",dataSchema);
